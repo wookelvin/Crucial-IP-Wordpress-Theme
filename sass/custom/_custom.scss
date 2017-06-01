@@ -1,0 +1,926 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic);
+
+//$color1: #3EA7FE;
+$color1:RGBA(0, 123, 254, 1);
+$contentwidth: 1300px;
+$mobilebrk:800px;
+
+body{
+  font-family:"Open Sans";
+  font-weight:300;
+}
+a{
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.entry-content p a:not(.bannerbtn):not(.lightbtn):not(.dwnload){
+  text-transform: uppercase;
+  text-decoration: none;
+  color:$color1;
+  &:visited{ color: $color1;}
+  font-size:0.8em;
+  border: 1px solid $color1;
+  padding: 0 0.5em;
+  &:hover, &.focus{ background-color:$color1; color:white;}
+}
+
+h1,h2,h3,h4,h5,h6{
+  text-transform: uppercase;
+  font-weight:300;
+  margin-top:0.7em;
+}
+h1{font-size:2.5em; line-height: 1em;}
+h2{font-size:2.5em; }
+h3{font-size:2.1em; }
+h4{font-size:1.9em; }
+h5{font-size:1.7em; }
+h6{font-size:1.5em; }
+
+@media screen and (max-width:$mobilebrk){
+  h1{font-size:2.0em; }
+  h2{font-size:1.8em; }
+  h3{font-size:1.6em; }
+  h4{font-size:1.4em; }
+  h5{font-size:1.2em; }
+  h6{font-size:1.0em; }
+
+}
+
+.title{
+  font-size:3em;
+  text-transform: uppercase;
+  font-weight:300;
+  text-align: center;
+  justify-content: center;
+}
+.centercontents{
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  
+}
+
+.container{
+  max-width:$contentwidth;
+  margin:0 auto;
+  padding:2em;
+}
+
+.row{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: stretch;
+}
+.onehalf{
+  width:50%;
+  padding:2em;
+}
+.onethird{
+  width:33%;
+  padding:2em;
+}
+.twothird{
+  width:66%;
+  padding:2em;
+}
+.full{
+  width: 100%; 
+  //text-align: center;
+}
+.rightalign{
+  text-align: right; 
+}
+
+
+a.lightbtn{
+  color:#686868; 
+  border:1px solid #686868;
+  border-radius:0.3em;
+  padding: 0.3em 1em;
+  display:inline-block; 
+  &:hover, &.focus{
+    color:white;
+    background-color:#686868;
+  }
+}
+
+@media screen and (max-width:$mobilebrk){
+  .container{
+    padding:0.8em; 
+  }
+  .rightalign{
+    text-align: left;
+  }
+  .centercontents{
+    text-align: left; 
+  }
+  .row{
+    flex-wrap: wrap;
+  }
+  .onethird,.onehalf,.twothird{
+    padding:0;
+    width:100%;
+    margin:0.5em 0em 2em;
+  }
+  .firsthalf{
+    order:-1;
+  }
+  .mobiledisappear{
+    display:none; 
+  }
+
+}
+
+
+
+
+.hentry{
+ margin-bottom: 0; 
+}
+
+.entry-content{
+  margin-top:0; 
+}
+
+.site-header{
+  position:fixed; 
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  width:100%;
+  z-index:10;
+  &:before, &:after{content:none !important;}
+  transition: background-color 0.2s ease-in-out;
+  background-color:rgba(0,0,0,0);
+  //padding-bottom:1em;
+}
+
+.header-container{ 
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  width:100%;
+  max-width:$contentwidth;
+  margin: 0 auto;
+  padding-bottom:1em;
+}
+#masthead{
+//  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0));
+  transition:background 0.5s ease;
+}
+.addbg{
+  //background:transparent;
+  background:rgba(0,0,0,1) !important; 
+}
+header.entry-header{
+  display:none;  
+}
+
+ul.nav-menu{
+  text-transform: uppercase;
+  //width:50em;
+  li a{
+    padding:0.5em 1em;
+    color:white;
+    border: 1px solid transparent;
+    //text-shadow: 1px 1px 20px rgba(0,0,0,0.9);
+    
+    &:hover, &.focus{
+      border: 1px solid white;
+      border-radius:0.3em;
+      
+    }
+    
+  }
+  li a[href="#"]{
+    pointer-events: none;
+    
+  }
+  
+  li.current_page_item a {
+    border: 1px solid white;
+    border-radius:0.3em;
+  }
+  
+  .submenu{
+    left: 0;
+    
+  } 
+}
+
+.main-navigation ul ul{
+  left:0; 
+  top:100%;
+  display: none;
+  text-align: left;
+  box-shadow: none;
+  li a{
+    background-color:rgba(0,0,0,0.75); 
+    display:block;
+    //white-space: nowrap;
+    width:15em;
+    
+  }
+}
+.main-navigation li {
+  float:none;
+  display:inline-block;
+}
+
+.main-navigation ul li:hover > ul, .main-navigation ul li.focus > ul { 
+  display:block;
+}
+
+.main-navigation {
+  //position:absolute; 
+  //width:100%;
+  float:none;
+  display:inline-block;
+  text-align: right;
+  //position:absolute;
+  width:50em;
+  margin-top:1em;
+  //top:0;
+  //right:0;
+}
+.site-branding{
+  display:block;
+  //display:inline-block;
+  //float:left;
+  //clear:both;
+}
+
+.sitelogo img{
+  height:auto;
+  width:200px;
+  margin-top:1em;
+}
+
+
+//banner
+#bannerimg{
+  display:none; 
+}
+.topbanner{
+  //width:100%;
+  height:700px;
+  position:relative;
+  background-color:black;
+  //min-height:300px;
+  overflow: hidden;
+  background-position: center bottom;
+  background-size:cover;
+  
+  
+  img{
+    width:auto;  
+    height:100%;
+    display:block;
+    
+  }
+  border-bottom: 8px solid $color1;
+  &:after{
+    content: '';
+    position:absolute;
+    z-index: 5;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 75%);
+
+  }
+  .textlayer{
+    z-index:8;
+    color:white;
+    position:absolute;
+    top:50%;
+    left:0;
+    
+    width: 100%;
+    
+    margin: 0 auto;
+    .bannertext{
+      color:white; 
+      font-size:3em;
+      line-height: 0.8em;
+      text-transform: uppercase;
+      
+      animation: fadein 1s;
+      
+    }
+    .subtext{
+      margin-top:0.2em;
+      color:white;
+      font-size:1.5em;
+      line-height:1.2em;
+      
+      text-transform: uppercase;
+      animation: fadein 2s;
+      
+      
+    }
+  }
+}
+
+.blankdivider{
+  width:100%;
+  height:1.5em;
+}
+a.bannerbtn{
+  color:white;
+  padding:0.3em 1em;
+  background-color:$color1;
+  border-radius:0.3em;
+  border: 1px solid $color1;
+  &:hover, &.focus{
+    color:$color1;
+    background-color:white;
+  }
+}
+
+.calbg{
+  background-image: url(/wp_crucialip/wp-content/themes/crucialip/img/bg10_lt.jpg);
+  background-size:cover;
+  background-position: top center;
+  
+}
+
+@media screen and (max-width:$mobilebrk){
+  .topbanner{
+    height:500px; 
+  }
+}
+//FOOOOOTEER
+
+
+.contact-us{
+  text-align: center;
+  background-color:$color1;
+  padding:2.5em 1em;
+  color: white;
+  text-transform: uppercase;
+  
+  a{
+    padding:0.5em 1em;
+    border:1px solid white;
+    color:white;
+    margin:0 1em;
+    border-radius:0.3em;
+    
+    &:hover &.focus{
+      background-color:white;
+      color:$color1;
+    }
+  }
+}
+
+.footer-bar{
+  background-color:#262626;
+  color:#bfbfbf;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  padding:2em 1em;
+}
+.logo{
+  width:400px;
+  font-size:0.5em;
+  text-transform: uppercase;
+  text-align: center;
+  padding:2em 10em;
+}
+.footernav1, .footernav2, .footernav3{
+  width:200px;
+  font-size:0.8em;
+  padding: 1em 0.5em 2em;
+  a{
+    display:block;
+    color:#bfbfbf;
+    padding: 0.25em 0;
+    &:hover, &.focus{
+      color:white;
+    }
+  }
+  a.lvl1{
+    font-weight:600; 
+    //letter-spacing: 0.05em;
+  }
+}
+
+aside{
+  display:none; 
+}
+
+@media screen and (max-width:$mobilebrk){
+  .footer-bar{
+    flex-wrap: wrap; 
+  }
+  
+  .logo{
+    padding:0; 
+    margin-bottom:2em;
+  }
+  .footernav1,.footernav2,.footernav3{
+    padding:0; 
+    width:100%;
+    text-align: center;
+  }
+}
+
+
+///LATEST NEWS & EVENTS
+
+.fpfeed .display-posts-listing{
+  display:flex;
+  justify-content: space-between;
+  
+}
+.fpfeed .listing-item{
+  //width:30%; 
+  display:flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .date{
+    display:block;
+    width:80px;
+    height:80px;
+    text-align: center;
+    text-transform: uppercase;
+    margin:0;
+    color:white;
+    background-color:$color1;
+    //border-radius:0.3em;
+    padding:0.5em;
+    .month{font-size:0.5em;}
+    .day{font-size:2em;margin-top:-0.3em;}
+    .year{font-size:1em;margin-top:-0.5em;}
+    order:1;
+    margin-right:1em;
+    margin-left:1em;
+  }
+  .content{order:2;max-width:300px;}
+  .title{display:none;}
+}
+
+
+//news page
+.allnews .listing-item{
+  display:flex;
+  justify-content: space-between;
+  .title{display:none;}
+  
+  .date{
+    display:block;
+    width:5em;
+    height:5em;
+    text-align: center;
+    text-transform: uppercase;
+    margin:0;
+    color:white;
+    background-color:$color1;
+    //border-radius:0.3em;
+    padding:0.5em;
+    .month{font-size:0.5em;}
+    .day{font-size:2em;margin-top:-0.3em;}
+    .year{font-size:1em;margin-top:-0.5em;}
+  }
+  .content{
+    text-align: left;
+    width:90%;
+  }
+  padding:1em 0;
+}
+
+@media screen and (max-width:$mobilebrk){
+  .fpfeed .display-posts-listing{
+    flex-wrap:wrap; 
+  }
+  .fpfeed .listing-item{
+    flex-wrap:wrap;
+    justify-content: center;
+    margin-top:0.5em;
+    margin-bottom:2em;
+    .content{max-width:none;}
+  }
+  .allnews .listing-item{
+    flex-wrap:wrap;
+    justify-content: center;
+    .date{
+      margin-bottom:0.5em;
+      margin-top:2em;
+    }
+  }
+}
+
+//maps page
+
+a.contact_about, a.contact_tel, a.contact_map{
+  display:block;
+  color:#626262;
+  padding:0.5em 1em 0.5em 4em;
+  border: 1px solid #626262;
+  margin: 1em 0;
+  border-radius: 0.3em;
+  position:relative;
+  &:before{
+    content:'';
+    background-repeat:no-repeat;
+    background-size:contain;
+    height:1.5em;
+    width:1.5em;
+    position:absolute;
+    left:1.75em;
+    top: 0.7em;
+    opacity:0.75;
+    
+  }
+  &:hover, &.focus{
+    color:white;
+    background-color:$color1;
+    border:1px solid $color1;
+  }
+}
+
+a.contact_about:before{
+  background-image: url(/wp_crucialip/wp-content/themes/crucialip/img/icon_env.png);
+}
+a.contact_tel:before{
+  background-image: url(/wp_crucialip/wp-content/themes/crucialip/img/icon_tel.png);
+}
+a.contact_map:before{
+  background-image: url(/wp_crucialip/wp-content/themes/crucialip/img/icon_map.png);
+}
+
+//crucial advantage
+table.equalsixth{
+  border-collapse: separate;
+  border-spacing: 5px;
+  td{ 
+    width: 1/6*100%;
+    text-align:center;
+    padding:0.3em;
+    border-radius:0.3em;
+    
+    //border-radius: 0.3em;
+    text-transform: uppercase;
+  }
+  
+  .tvg{
+    background-color:#309F2A;
+  }
+  .tg{
+    background-color:#A3C73B; 
+  }
+  .tp{
+    background-color:#AE6E31;
+  }
+  .tna{
+    background-color:#A42B2B;
+  }
+  .tvg,.tna,.tg,.tp{
+    color:white;
+    font-weight:400;
+    padding:1em;
+  }
+  .ttitle{
+    text-align:right; 
+    
+  }
+  .thead{
+    font-size:1.5em;
+    img{
+      width:90%;
+      height:auto;
+      
+    }
+    
+  }
+}
+
+@media screen and (max-width:$mobilebrk){
+  table.equalsixth{
+   border-collapse: collapse;
+   border-spacing:0;
+    .ttitle{ font-size:0.8em;}
+    .thead{font-size:0.8em;}
+    td{font-size:0.5em;border-radius:0em;}
+    .tvg,.tna,.tg,.tp{
+      padding:0.5em;
+    }
+  }
+}
+
+
+a.dwnload{
+  padding: 0.5em 1em 0.5em;
+  color:#626262;
+  border:1px solid #626262;
+  margin:0.5em;
+  border-radius:0.3em;
+  &:before{
+    content:'';
+    background-image:url(/wp_crucialip/wp-content/themes/crucialip/img/icon_pdf.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height:2em;
+    width:2em;
+    margin-bottom:-0.55em;
+    margin-right:0.5em;
+    display:inline-block;
+    
+  }
+}
+@media screen and (max-width:$mobilebrk){
+  a.dwnload{
+    font-size: 0.8em; 
+  }
+}
+
+//ip services
+.product-list-single{
+  
+  .product-pdf, .product-id,.product-title{
+    display:inline-block; 
+    padding:1em;
+  }
+  .product-pdf{
+    //margin-left:5em;
+    display:inline-block;
+    //margin-bottom: -1em;
+    img{
+      height:1.5em;
+      width:auto;
+      margin-bottom: -0.25em;
+    }
+    width:4em;
+  }
+  .product-id{
+    text-align:left;
+    width:10em;
+  }
+  .linkds{
+    border: 1px solid #eee;
+    margin: 0.5em 0;
+    color: #626262;
+    width: 90%;
+    display:inline-block;
+    &:hover, &.focus{
+      background-color:$color1; 
+      border: 1px solid $color1;
+      color:white;
+    }
+     
+  }
+  
+}
+
+.product-full-single{
+  .product-id{
+    display:inline-block;
+    padding:1em 0em;
+    width: 8em;
+    text-align: center;
+    margin-right:1em;
+    background-color:$color1;
+    color:white;
+    
+  }
+  .product-row{
+    margin-bottom:0.5em;
+  }
+  .product-title{
+    display:inline-block; 
+    text-transform: uppercase;
+    font-size:1.5em;
+  }
+  .product-desc{
+    padding-bottom:1em; 
+  }
+  a.prodbrief{
+    img{
+      height:1.5em;
+      width:auto;
+      margin-bottom:-0.25em;
+      margin-right:0.5em;
+    }
+    color:#626262;
+    padding: 0.5em 1em;
+    border:1px solid #626262;
+    border-radius:0.15em;
+    margin-right:3em;
+    &:hover, &.focus{
+      background-color:$color1; 
+      border: 1px solid $color1;
+      color:white;
+    }
+  }
+   a.atop{
+    img{
+      height:0.75em;
+      width:auto;
+      margin-right:0.75em;
+      //margin-bottom:-0.25em;
+    }
+    color:#626262;
+    padding: 0.5em 1em;
+    border:1px solid #626262;
+    margin-right:1em;
+     border-radius:0.15em;
+     &:hover, &.focus{
+      background-color:$color1; 
+      border: 1px solid $color1;
+      color:white;
+    }
+  }
+  margin-bottom:6em;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -100px;
+    visibility: hidden;
+}
+a.nopdf{
+  
+}
+a.empty{
+  pointer-events: none; 
+}
+.product-full-single a.prodbrief img.conme{
+  height:1em; 
+  margin-bottom: -0.05em;
+}
+.product-list-single .product-pdf img.conme{
+  height:1.1em; 
+  margin-bottom: -0.05em;
+}
+
+@media screen and (max-width:$mobilebrk){
+  
+  .product-list-single{
+      display:flex;
+      margin:0.5em 0;
+      .product-pdf, .product-id,.product-title{
+        //display:inline-block; 
+        padding:0 0.5em;
+      }
+      .product-pdf{
+        //margin-left:5em;
+        //display:inline-block;
+        margin-bottom: 0;
+        img{
+          //height:1.5em;
+          //width:auto;
+          margin-bottom:0;
+        }
+        //width:4em;
+      }
+      .product-id{
+        //text-align:left;
+        //width:10em;
+      }
+      .linkds{
+        //border: 1px solid #eee;
+        margin: 0;
+        //color: #626262;
+        //width: 90%;
+        //display:inline-block;
+        //&:hover{
+          //background-color:$color1; 
+          //border: 1px solid $color1;
+          //color:white;
+        //}
+
+      }
+
+    }
+  
+  .product-full-single{
+    a.prodbrief{
+      font-size:0.8em;
+      display:inline-block;
+      margin-bottom:0.5em;
+    }
+    a.atop{
+      font-size:0.8em;
+      display:inline-block;
+    }
+  }
+}
+
+.forcedbanner{
+  width:100%;
+  position:relative;
+  background-color:black;
+  background-image:url(/wp_crucialip/wp-content/themes/crucialip/img/bg10.jpg);
+  border-bottom: 8px solid $color1;
+  height:200px;
+  background-size:cover;
+  
+  &:after{
+    content: '';
+    position:absolute;
+    z-index: 5;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 75%);
+
+  }
+  .textlayer{
+    z-index:8;
+    color:white;
+    position:absolute;
+    top:50%;
+    left:0;
+    
+    width: 100%;
+    
+    margin: 0 auto;
+    .bannertext{
+      color:white; 
+      font-size:3em;
+      text-transform: uppercase;
+    }
+    .subtext{
+      margin-top:-0.5em;
+      color:white;
+      font-size:1.5em;
+      text-transform: uppercase;
+      
+    }
+  }
+}
+
+@media screen and (max-width:900px){
+  .main-navigation{
+    width:auto; 
+    align-items: flex-end;
+    //background:black;
+    //margin-top:100px;
+  }
+  .main-navigation ul ul{
+    position: relative;
+    width:100%;
+  }
+  .main-navigation ul ul li{
+    width:100%;
+    padding-left:1em; 
+    a{
+      width:100%; 
+      background:transparent;
+      
+    }
+  }
+  .main-navigation li {
+    position: relative;
+    float:none;
+    //display:block;
+    width:100%;
+    background:transparent;
+    margin-top:1px;
+    a{
+      background:transparent;
+    }
+  }
+  
+  .menu-menu-1-container{
+    position: absolute; 
+    left:0;
+    width:100%;
+    text-align: left;
+    margin-top:15px;
+    background:rgba(0,0,0,.9); 
+  }
+  .menu-toggle{
+    //align-items: flex-end; 
+  }
+}
+
+button.menu-toggle{
+  background:none;
+  border:0;
+  color:none;
+  box-shadow: none;
+  height:25px;
+  width:25px;
+  margin-top:5px;
+  margin-right:25px;
+  background-image:url(/wp_crucialip/wp-content/themes/crucialip/img/list-menu.png);
+  background-size:contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+@keyframes fadein {
+    0%   { opacity: 0; }
+  50%  { opacity: 0; } 
+  100%  { opacity: 1; } 
+  
+}
